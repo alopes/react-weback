@@ -6,9 +6,6 @@ var LocationsMixin = {
     var sorted_results = utils.sortBy(this.state.results, sortby);
     this.setState({results: sorted_results});
   },
-  filterByTag: function(index){
-    console.log(index, 'filterByTag');
-  },
   componentDidMount: function(){
     var tags = utils.lettersIndex(this.state.results);
     this.setState({tags: tags});
