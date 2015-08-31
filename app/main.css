@@ -1,3 +1,15 @@
 body {
-  background: cornsilk;
+  background: #FFF;
+}
+
+.LocationResults li{
+  list-style-type: none;
+  float:left;
+}
+
+.LocationResults ul{
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+  float: left;
 }

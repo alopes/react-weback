@@ -1,14 +1,13 @@
 import './main.css';
 
 import React from 'react';
-import App from './components/App';
 
-main();
+var Router = require('react-router');
+var routes = require('./config/routes');
 
-function main() {
-  const app = document.createElement('div');
+const app = document.createElement('div');
+document.body.appendChild(app);
 
-  document.body.appendChild(app);
-
-  React.render(<App />, app);
-}
+Router.run(routes, function (Handler, state) {
+  React.render(<Handler pathname={state.pathname} />, app);
+});
