@@ -16,14 +16,35 @@
     "node-libs-browser": "^0.5.2",
     "react-hot-loader": "^1.2.8",
     "react-router": "^0.13.3",
+    "react-tools": "^0.13.3",
     "style-loader": "^0.12.3",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1",
     "webpack-merge": "^0.1.3"
   },
   "scripts": {
-    "start": "TARGET=dev webpack-dev-server --host $IP --port $PORT  --hot --inline",
+    "start": "TARGET=dev webpack-dev-server  --hot --inline",
     "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-tools"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/react"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "testPathDirs": [
+      "<rootDir>/"
+    ]
   },
   "author": "",
   "license": "ISC"
