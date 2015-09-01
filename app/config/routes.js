@@ -3,11 +3,11 @@ var Router = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 
-var GroupLocations = require('../components/locations/GroupLocations');
-var OfficeLocations = require('../components/locations/OfficeLocations');
-var RegionLocations = require('../components/locations/RegionLocations');
-var SiteLocations = require('../components/locations/SiteLocations');
-var Locations = require('../components/Locations');
+var GroupLocations = require('../views/location/Group');
+var OfficeLocations = require('../views/location/Office');
+var RegionLocations = require('../views/location/Region');
+var SiteLocations = require('../views/location/Site');
+var Locations = require('../views/location/Locations');
 
 module.exports = (
  <Route name="app" path="/" handler={Locations}>

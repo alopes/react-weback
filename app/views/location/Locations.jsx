@@ -5,16 +5,11 @@ var Link = Router.Link;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
-var LocationType = require('./locations/LocationType');
-var LocationTitle = require('./locations/LocationTitle');
+var LocationType = require('../../components/locations/LocationType');
+var LocationTitle = require('../../components/locations/LocationTitle');
 
 var Locations = React.createClass({
   mixins: [Router.State, Router.Navigation],
-  getInitialState: function() {
-    return {
-      lolwat: "loogar"
-    };
-  },
   handleLocationUpdate: function(newLocation){
     this.setState({activeLocation: newLocation});
     this.transitionTo(newLocation);

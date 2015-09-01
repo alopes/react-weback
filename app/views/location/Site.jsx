@@ -1,24 +1,24 @@
 var React = require('react');
-var utils = require('../utils/utils');
+var utils = require('../../utils/utils');
 
-var LocationsMixin = require('./LocationsMixin');
-var LocationIndex = require('./LocationIndex');
-var Table = require('./Table');
+var LocationsMixin = require('../../mixins/LocationsMixin');
+var LocationIndex = require('../../components/locations/LocationIndex');
+var Table = require('../../components/Table');
 
-var temp_data = require('../data');
+var temp_data = require('../../data');
 
-var GroupLocation = React.createClass({
+var SiteLocations = React.createClass({
   mixins: [LocationsMixin],
   getInitialState: function(){
     return {
       tags: [],
-      headers: [ 'leader','region', 'size'],
-      results: temp_data.group
+      headers: ['country', 'telephone', 'size', 'site'],
+      results: temp_data.sites
     };
   },
   render: function() {
     return (
-      <div className="LocationResults GroupLocation">
+      <div className="LocationResults SiteLocation">
         <LocationIndex tags={this.state.tags} filterByTag={this.filterByTag} />
         <Table 
           headers={this.state.headers}
@@ -37,4 +37,4 @@ var GroupLocation = React.createClass({
   }
 });
 
-module.exports = GroupLocation;
+module.exports = SiteLocations;

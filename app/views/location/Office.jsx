@@ -1,11 +1,11 @@
 var React = require('react');
-var utils = require('../utils/utils');
+var utils = require('../../utils/utils');
 
-var LocationsMixin = require('./LocationsMixin');
-var LocationIndex = require('./LocationIndex');
-var Table = require('./Table');
+var LocationsMixin = require('../../mixins/LocationsMixin');
+var LocationIndex = require('../../components/locations/LocationIndex');
+var Table = require('../../components/Table');
 
-var temp_data = require('../data');
+var temp_data = require('../../data');
 
 var OfficeLocations = React.createClass({
   mixins: [LocationsMixin],
