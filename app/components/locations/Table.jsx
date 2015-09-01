@@ -20,6 +20,7 @@ var Table = React.createClass({
   render: function() {
     return (
       <div>
+        <p>{this.props.getFilteredByTag.length} results</p>
         <table>
           <TableHeader headers={this.props.headers} sortByColumn={this.props.sortByColumn} />
           <TableResults results={this.props.filteredResults} columnsOrder={this.props.headers} />
