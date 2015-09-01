@@ -1,6 +1,6 @@
 var React = require('react');
-var Router = require('react-router');
 var utils = require('../utils/utils');
+
 var LocationsMixin = require('./LocationsMixin');
 var LocationIndex = require('./LocationIndex');
 var Table = require('./Table');
@@ -8,7 +8,7 @@ var Table = require('./Table');
 var temp_data = require('../data');
 
 var SiteLocations = React.createClass({
-  mixins: [LocationsMixin, Router.Navigation],
+  mixins: [LocationsMixin],
   getInitialState: function(){
     return {
       tags: [],
@@ -16,14 +16,19 @@ var SiteLocations = React.createClass({
       results: temp_data.sites
     };
   },
-  filterByTag: function(tag){
-    this.transitionTo('site-filter', {id: tag});
-  },
   render: function() {
     return (
       <div className="LocationResults SiteLocation">
         <LocationIndex tags={this.state.tags} filterByTag={this.filterByTag} />
-        <Table headers={this.state.headers} results={this.state.results} sortByColumn={this.sortByColumn} />
+        <Table 
+          headers={this.state.headers}
+          results={this.computedResults()}
+          sortByColumn={this.sortByColumn}
+          handlePrev={this.handlePrev}
+          handleNext={this.handleNext}
+          resultsPerPage={this.state.resultsPerPage}
+          totalResults={this.getTotalResults()}
+          />
       </div>
     );
   }

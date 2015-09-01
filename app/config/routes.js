@@ -11,18 +11,10 @@ var Locations = require('../components/Locations');
 
 module.exports = (
  <Route name="app" path="/" handler={Locations}>
-  <Route name="group" handler={GroupLocations}>
-    <Route name="group-filter" handler={GroupLocations} path="/group/:id"/>
-  </Route>
-  <Route name="site" handler={SiteLocations}>
-    <Route name="site-filter" handler={SiteLocations} path="/site/:id"/>
-  </Route>
-  <Route name="region" handler={RegionLocations}>
-    <Route name="region-filter" handler={RegionLocations} path="/region/:id"/>
-  </Route>
-  <Route name="office" handler={OfficeLocations}>
-    <Route name="office-filter" handler={OfficeLocations} path="/office/:id"/>
-  </Route>
+  <Route name="group" handler={GroupLocations}/>
+  <Route name="site" handler={SiteLocations}/>
+  <Route name="region" handler={RegionLocations}/>
+  <Route name="office" handler={OfficeLocations}/>
   <DefaultRoute handler={GroupLocations} />
  </Route>
 );

@@ -1,12 +1,12 @@
 var _ = require('lodash');
 
 module.exports = {
-  lettersIndex: function(locations){
+  lettersIndex: function(locations, headers){
     var letters = [];
 
     locations.map(function(location, i){
       // get first key value;
-      location = location[Object.keys(location)[0]];
+      location = location[headers[0]];
       letters.push(location.substring(0,1));
     });
 
@@ -24,5 +24,20 @@ module.exports = {
     }
 
     return sorted_order;
+  },
+  filterByTag: function(results, headers, tag){
+    
+    if(tag && tag.toLowerCase() !== 'all'){
+      tag = tag.toLowerCase();
+      var filteredResults = _.filter(results, function(result) {
+        var first_column = result[headers[0]];
+        var result_first_letter = first_column.substring(0,1);
+        return result_first_letter.toLowerCase() === tag.toLowerCase();
+      });
+      return filteredResults;
+    }else{
+      return results;
+    }
+    
   }
 };
