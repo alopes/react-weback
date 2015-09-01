@@ -63,7 +63,7 @@ var LocationsMixin = {
     
   },
   handleNext: function(){
-    
+
     var results = utils.filterByTag( this.state.results, this.state.headers, this.props.query.tag).length;
     var max_pages = results / this.state.resultsPerPage;
     

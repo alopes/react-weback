@@ -19,6 +19,11 @@ var Locations = React.createClass({
     this.setState({activeLocation: newLocation});
     this.transitionTo(newLocation);
   },
+  componentDidMount:function(){
+    if(!this.getPathname().substring(1)){
+      this.transitionTo('group', null, this.props.query);
+    }
+  },
   getCurrentLocation: function(){
     return this.props.pathname.substring(1);
   },
