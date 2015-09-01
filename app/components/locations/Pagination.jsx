@@ -1,12 +1,13 @@
 var React = require('react');
+var _ = require('lodash');
 
 var Pagination = React.createClass({
   propTypes: {
     handleNext: React.PropTypes.func.isRequired,
     handlePrev: React.PropTypes.func.isRequired,
-    results: React.PropTypes.array.isRequired,
+    getFilteredByTag: React.PropTypes.array.isRequired,
     resultsPerPage: React.PropTypes.number.isRequired,
-    totalResults: React.PropTypes.number.isRequired
+    currentPage: React.PropTypes.number.isRequired
   },
   next: function(){
       this.props.handleNext();
@@ -15,18 +16,20 @@ var Pagination = React.createClass({
       this.props.handlePrev();
   },
   render: function() {
-    if(this.props.totalResults > this.props.resultsPerPage){
-      return (
-        <ul>
-          <li><button onClick={this.prev}>prev</button></li>
-          <li><button onClick={this.next}>next</button></li>
-        </ul>
+    var maxPages =  _.ceil(this.props.getFilteredByTag.length / this.props.resultsPerPage);
+    if(this.props.getFilteredByTag.length > this.props.resultsPerPage){
+       return (
+        <div>
+          <p>Page {this.props.currentPage} of { maxPages }</p>
+          <ul>
+            <li><button onClick={this.prev} disabled={this.props.currentPage === 1}>prev</button></li>
+            <li><button onClick={this.next} disabled={this.props.currentPage >= maxPages}>next</button></li>
+          </ul>
+        </div>
       );
     }else{
       return(
-      <ul>
-      
-      </ul>
+        <div/>
       )
     }
     

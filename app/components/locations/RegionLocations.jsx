@@ -23,12 +23,15 @@ var RegionLocations = React.createClass({
         <LocationIndex tags={this.state.tags} filterByTag={this.filterByTag} />
         <Table 
           headers={this.state.headers}
-          results={this.computedResults()}
+          results={this.state.results}
+          filteredResults={this.computedResults()}
           sortByColumn={this.sortByColumn}
           handlePrev={this.handlePrev}
           handleNext={this.handleNext}
           resultsPerPage={this.state.resultsPerPage}
           totalResults={this.getTotalResults()}
+          currentPage={this.getCurrentPage()}
+          getFilteredByTag={this.getFilteredByTag()}
           />
       </div>
     );
